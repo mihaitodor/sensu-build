@@ -6,7 +6,7 @@
     sharedscripts
     compress
     postrotate
-        kill -USR2 `cat /var/run/sensu/sensu-client.pid 2> /dev/null` 2> /dev/null || true
+        /opt/sensu/embedded/bin/sensu-ctl sensu-client 2
     endscript
 }
 
@@ -18,7 +18,7 @@
     sharedscripts
     compress
     postrotate
-        kill -USR2 `cat /var/run/sensu/sensu-server.pid 2> /dev/null` 2> /dev/null || true
+        /opt/sensu/embedded/bin/sensu-ctl sensu-server 2
     endscript
 }
 
@@ -30,6 +30,6 @@
     sharedscripts
     compress
     postrotate
-        kill -USR2 `cat /var/run/sensu/sensu-api.pid 2> /dev/null` 2> /dev/null || true
+        /opt/sensu/embedded/bin/sensu-ctl sensu-api 2
     endscript
 }
